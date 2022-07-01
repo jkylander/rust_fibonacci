@@ -12,17 +12,19 @@ fn main() {
             break;
         }
         //Make sure it's a number
-        let number: usize = match number.trim().parse() {
+        let number: i32 = match number.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
         };
         //Print fib(n)
-        println!("Fibonacci({}) -> {}", number, fib(number));
+        //println!("Binet fast Fibonacci({}) -> {}", number, fib_binet(number));
+        println!("Fibonacci({}) -> {}", number, fib_recurvsive(number));
+
     }
 
 }
 //Recursive fibonacci
-fn fib(n: usize) -> usize{
+fn fib_recurvsive(n: i32) -> i32{
     if n <=0{
         return 0;
     }
@@ -30,6 +32,11 @@ fn fib(n: usize) -> usize{
         return 1;
     } 
     else {
-        return fib(n-1) + fib(n-2)
+        return fib_recurvsive(n-1) + fib_recurvsive(n-2)
     }
+}
+//Binet algorithm
+fn fib_binet(n: i32) {
+    
+    
 }
