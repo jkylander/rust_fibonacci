@@ -1,4 +1,8 @@
 use std::io;
+mod recursive;
+mod binet;
+use binet::fib_binet;
+use recursive::fib_recurvsive;
 fn main() {
 
     loop{
@@ -17,26 +21,9 @@ fn main() {
             Err(_) => continue,
         };
         //Print fib(n)
-        //println!("Binet fast Fibonacci({}) -> {}", number, fib_binet(number));
+        println!("Binet fast Fibonacci({}) -> {}", number, fib_binet(number));
         println!("Fibonacci({}) -> {}", number, fib_recurvsive(number));
 
     }
 
-}
-//Recursive fibonacci
-fn fib_recurvsive(n: i32) -> i32{
-    if n <=0{
-        return 0;
-    }
-    else if n == 1 {
-        return 1;
-    } 
-    else {
-        return fib_recurvsive(n-1) + fib_recurvsive(n-2)
-    }
-}
-//Binet algorithm
-fn fib_binet(n: i32) {
-    
-    
 }
